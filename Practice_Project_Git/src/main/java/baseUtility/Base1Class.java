@@ -16,12 +16,6 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.comcast.crm.generic.fileutility.ExcelUtility;
-import com.comcast.crm.generic.fileutility.FileUtility;
-import com.comcast.crm.generic.webdriverutility.JavaUtility;
-import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
-import com.comcast.crm.objectrepositoryutility.HomePage;
-
 public class Base1Class {
 	// public static TakesScreenshot sdriver;
 
@@ -30,10 +24,7 @@ public class Base1Class {
 
 	// creation of object
 	public DataBaseUtility dblib = new DataBaseUtility();
-	public FileUtility flib = new FileUtility();
-	public ExcelUtility elib = new ExcelUtility();
-	public JavaUtility jlib = new JavaUtility();
-	public WebDriverUtility wlib;
+	
 
 	@BeforeSuite(groups = { "smokeTest", "regressionTest" })
 	public void configBS() throws SQLException {
@@ -75,8 +66,6 @@ public class Base1Class {
 	@AfterMethod
 	public void configAM() {
 		System.out.println("==LogOut==");
-		HomePage hp = new HomePage(driver);
-		hp.logout();
 	}
 
 	@AfterClass
